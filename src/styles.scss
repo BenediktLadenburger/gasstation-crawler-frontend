@@ -1,0 +1,38 @@
+@use "@angular/material" as mat;
+@include mat.core();
+/* You can add global styles to this file, and also import other style files */
+
+root {
+    --title-color: #00fbfb;
+}
+
+html,
+body {
+    height: 100%;
+}
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+.col {
+    display: flex;
+    flex-direction: column;
+}
+
+.app-card-container {
+    border: 1px solid #e0e3e2;
+    padding: 20px 50px;
+    border-radius: 20px;
+    font-weight: 400;
+    padding: 20px 50px;
+}
+
+.app-card-title {
+    color: var(--title-color);
+    font-size: 24px;
+}

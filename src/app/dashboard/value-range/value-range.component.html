@@ -1,0 +1,8 @@
+<value-range-selections [dateSignal]="mutDateSignal"></value-range-selections>
+<mat-divider></mat-divider>
+@if (requestData !== undefined) {
+    <price-graph [dateSignal]="this.getSignal()" [data]="requestData">
+    </price-graph>
+}
+<mat-divider></mat-divider>
+

@@ -1,0 +1,24 @@
+<mat-form-field appearance="outline" color="primary">
+    <mat-label>{{ labels[locale()].dateRange }}</mat-label>
+
+    <mat-date-range-input [rangePicker]="dateRangePicker" [formGroup]="dateForm">
+        <input
+            readonly
+            matStartDate
+            formControlName="startDate"
+            [placeholder]="labels[locale()].startDate"
+        />
+
+        <input
+            readonly
+            matEndDate
+            formControlName="endDate"
+            [placeholder]="labels[locale()].endDate"
+        />
+    </mat-date-range-input>
+
+    <mat-datepicker-toggle matSuffix [for]="dateRangePicker">
+    </mat-datepicker-toggle>
+
+    <mat-date-range-picker #dateRangePicker></mat-date-range-picker>
+</mat-form-field>

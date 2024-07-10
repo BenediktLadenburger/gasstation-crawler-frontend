@@ -1,0 +1,44 @@
+<button (click)="reroute('login')">login</button>
+<button (click)="reroute('dashboard')">dashboard</button>
+<div class="app-container">
+    <mat-toolbar class="toolbar">
+        <div class="toolbar-section">
+            <button mat-icon-button (click)="snav.toggle()">
+                <mat-icon>menu</mat-icon>
+            </button>
+            <h1 class="app-name">Responsive App</h1>
+        </div>
+        <div class="toolbar-section">
+            <span class="locale-preview">{{ getCurrentLang() }}</span>
+            <button [matMenuTriggerFor]="menu" class="lang-btn" mat-icon-button>
+                <mat-icon>translate</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                @for (item of localeList; track item) {
+                    <button mat-menu-item (click)="setLocale(item.id)">
+                        {{ item.label }}
+                    </button>
+                }
+            </mat-menu>
+            <button
+                mat-raised-button
+                class="logout-btn"
+                (click)="reroute('login')"
+            >
+                Logout
+            </button>
+        </div>
+    </mat-toolbar>
+
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #snav [mode]="'over'">
+            <mat-nav-list>
+                <a mat-list-item (click)="reroute('dashboard')">Dashboard</a>
+                <a mat-list-item>Settings</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
